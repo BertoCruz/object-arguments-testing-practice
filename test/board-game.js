@@ -3,17 +3,17 @@ const assert = chai.assert;
 const BoardGame = require('../src/BoardGame');
 
 describe('boardGame', function() {
-  it.skip('should be an instance of BoardGame', function() {
+  it('should be an instance of BoardGame', function() {
     var boardGame = new BoardGame({ name: 'Candyland' });
     assert.instanceOf(boardGame, BoardGame);
   });
 
-  it.skip('has a name', function() {
+  it('has a name', function() {
     var boardGame = new BoardGame({ name: 'Ticket To Ride' });
     assert.equal(boardGame.name, 'Ticket To Ride');
   });
 
-  it.skip('can have a different name', function() {
+  it('can have a different name', function() {
     // these naming conventions are awful, but they're like this to avoid potentially confusing naming at this level
     var boardGame1 = new BoardGame({ name: 'Onitama' });
     assert.equal(boardGame1.name, 'Onitama');
@@ -27,18 +27,18 @@ describe('boardGame', function() {
     assert.equal(boardGame5.name, 'Monopoly');
   });
 
-  it.skip('has a rating', function() {
+  it('has a rating', function() {
     var azul = new BoardGame({ name: 'Azul', rating: 10 });
     assert.equal(azul.rating, 10);
   });
 
-  it.skip('can have a different rating for different games', function() {
+  it('can have a different rating for different games', function() {
     var monopoly = new BoardGame({ name: 'Monopoly', rating: 6 });
     assert.equal(monopoly.rating, 6);
   });
 
 
-  it.skip('has a minimum number of required players', function() {
+  it('has a minimum number of required players', function() {
     // HINT: which name should the class have and which name does the object argument have?
     var azul = new BoardGame({ name: 'Azul', rating: 10 , minPlayers: 2 });
     assert.equal(azul.minimumPlayers, 2);
@@ -46,7 +46,7 @@ describe('boardGame', function() {
     assert.equal(carcassonne.minimumPlayers, 2);
   });
 
-  it.skip('has a maximum number of possible players', function() {
+  it('has a maximum number of possible players', function() {
     // HINT: which name should the class have and which name does the object argument have?
     var azul = new BoardGame({ name: 'Azul', rating: 10 , minPlayers: 2 , maxPlayers: 4 });
     assert.equal(azul.maximumPlayers, 4)
@@ -55,21 +55,21 @@ describe('boardGame', function() {
     assert.equal(carcassonne.maximumPlayers, 5);
   });
 
-  it.skip('can be played', function() {
+  it('can be played', function() {
     var azul = new BoardGame({ name: 'Azul', rating: 10 , minPlayers: 2 , maxPlayers: 4, played: false });
     assert.equal(azul.played, false);
     azul.play();
     assert.equal(azul.played, true);
   });
 
-  it.skip("should only be played if it's rating is 10 because the players are picky", function() {
+  it("should only be played if it's rating is 10 because the players are picky", function() {
     var azul = new BoardGame({ name: 'Azul', rating: 10 , minPlayers: 2 , maxPlayers: 4, played: false });
     assert.equal(azul.played, false);
     azul.play();
     assert.equal(azul.played, true);
     var monopoly = new BoardGame({ name: 'monopoly', played: false });
     assert.equal(monopoly.played, false);
-    monopoly.play();
+    monopoly.play(); 
     assert.equal(monopoly.played, false);
   });
 });
